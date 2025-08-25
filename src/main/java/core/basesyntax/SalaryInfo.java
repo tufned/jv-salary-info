@@ -13,8 +13,10 @@ public class SalaryInfo {
             int totalIncome = 0;
             for (String record : data) {
                 String[] recordValues = record.split(" ");
-                if (name.equalsIgnoreCase(recordValues[1]) && checkDateWithinPeriod(recordValues[0], dateFrom, dateTo)) {
-                    totalIncome += Integer.parseInt(recordValues[2]) * Integer.parseInt(recordValues[3]);
+                if (name.equalsIgnoreCase(recordValues[1])
+                        && checkDateWithinPeriod(recordValues[0], dateFrom, dateTo)) {
+                    totalIncome +=
+                            Integer.parseInt(recordValues[2]) * Integer.parseInt(recordValues[3]);
                 }
             }
             builder.append(System.lineSeparator()).append(name).append(" - ").append(totalIncome);
@@ -26,6 +28,7 @@ public class SalaryInfo {
         LocalDate date = LocalDate.parse(dateValue, formatter);
         LocalDate dateFromPrep = LocalDate.parse(dateFrom, formatter);
         LocalDate dateToPrep = LocalDate.parse(dateTo, formatter);
-        return (date.isAfter(dateFromPrep) || date.isEqual(dateFromPrep)) && (date.isBefore(dateToPrep) || date.isEqual(dateToPrep));
+        return (date.isAfter(dateFromPrep) || date.isEqual(dateFromPrep))
+                && (date.isBefore(dateToPrep) || date.isEqual(dateToPrep));
     }
 }
