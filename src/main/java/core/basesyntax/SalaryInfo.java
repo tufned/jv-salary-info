@@ -19,8 +19,8 @@ public class SalaryInfo {
                 String[] recordValues = record.split(" ");
                 if (name.equalsIgnoreCase(recordValues[INDEX_NAME])
                         && checkDateWithinPeriod(recordValues[INDEX_DATE], dateFrom, dateTo)) {
-                    totalIncome +=
-                            Integer.parseInt(recordValues[INDEX_HOURS]) * Integer.parseInt(recordValues[INDEX_RATE]);
+                    totalIncome += Integer.parseInt(recordValues[INDEX_HOURS])
+                                    * Integer.parseInt(recordValues[INDEX_RATE]);
                 }
             }
             builder.append(System.lineSeparator()).append(name).append(" - ").append(totalIncome);
